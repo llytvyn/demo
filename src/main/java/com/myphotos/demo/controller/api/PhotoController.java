@@ -1,8 +1,10 @@
 package com.myphotos.demo.controller.api;
 
 import com.myphotos.demo.model.Photo;
+import com.myphotos.demo.service.IPhotoService;
 import com.myphotos.demo.service.PhotoService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -14,7 +16,9 @@ import java.util.Optional;
 @RestController
 public class PhotoController {
     @Autowired // per non istanziarlo nel costruttore
-    private PhotoService photoService;
+    @Qualifier("mainPhotoService")
+    private IPhotoService photoService;
+
 
     public PhotoController () {
     }

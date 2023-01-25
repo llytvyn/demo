@@ -11,8 +11,8 @@ import org.springframework.web.server.ResponseStatusException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
-@Service
-public class PhotoService {
+@Service("mainPhotoService")
+public class PhotoService implements IPhotoService{
 
 
     private List<Photo> list;
@@ -24,23 +24,23 @@ public class PhotoService {
         list.add(new Photo(3,"./img/03.png"));
         lastId = 3;
     }
-
+@Override
     public Iterable<Photo> getAll () {
         return list;
     }
-
+@Override
     public Optional<Photo> getById (int id) {
         Optional<Photo> photo = list.stream().filter(item -> item.getId() == id).findFirst();
         return photo;
     }
-
+@Override
     public Photo create(Photo photo){
         lastId++; // in modo che l'id della nuova foto inserita sia l'ultimo id+1
         photo.setId(lastId);
         list.add(photo);
         return photo;
     }
-
+@Override
     public Optional<Photo> update(int id, Photo photo) {
 
         Optional<Photo> foundPhoto = list.stream().filter(item -> item.getId() == id).findFirst();
@@ -50,7 +50,7 @@ public class PhotoService {
         foundPhoto.get().setUrl(photo.getUrl());
         return foundPhoto;
     }
-
+@Override
     public Boolean delete(int id) {
         Optional<Photo> foundPhoto = list.stream().filter(item -> item.getId() == id).findFirst();
         if (foundPhoto.isEmpty()) {
