@@ -41,7 +41,7 @@ SOFTWARE.
     <script type="text/javascript">
 			$(document).ready(function() {
 
-/*				// start of dynamic version
+				<!-- start of dynamic version -->
 
 				$.ajax({
 					url : '/api/photos',
@@ -66,10 +66,11 @@ SOFTWARE.
 						});
 					}
 				});
-*/
-// end of dynamic version
 
-// start of static version
+<!-- end of dynamic version-->
+
+<!-- start of static version-->
+<!--
 				// init Masonry
 				var $grid = $('.grid').masonry({
 					itemSelector : '.grid-item'
@@ -79,8 +80,8 @@ SOFTWARE.
 				$grid.imagesLoaded().progress(function() {
 					$grid.masonry('layout');
 				});
-
-// end of static version?
+-->
+<!-- end of static version -->
 			});
 		</script>
 </head>
@@ -99,6 +100,7 @@ SOFTWARE.
 
     <div class="grid" style="position: relative; height: 2506.98px;">
 
+        // static version images
         <div class="grid-item">
             <img
                 src="./img/27.png"
@@ -235,6 +237,7 @@ SOFTWARE.
                 alt="" srcset="">
         </div>
 
+        <!-- end of static version images -->
     </div>
 
 </main>
