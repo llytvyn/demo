@@ -8,10 +8,11 @@ import org.springframework.web.bind.annotation.ResponseBody;
 public class HomeController {
 
     @RequestMapping("/") // questo metodo corrisponde a questo path
-    @ResponseBody // tutto il contenuto sarà mostrato all'utente
+   // @ResponseBody // tutto il contenuto sarà mostrato all'utente
     public String index(){
-        return "Hello World!";
+        return "index";
     }
+
     @RequestMapping("/second")
     @ResponseBody
     public String secondPage() {
